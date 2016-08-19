@@ -1,0 +1,153 @@
+﻿<div ng-controller="dashboardCtrl" class="container">
+    <h2>Customer Orders</h2>
+    <table class="table table-striped table-bordered table-hover table-checkable dataTable no-footer">
+        <thead>
+            <tr role="row" class="heading">
+
+                <th ng-mouseenter="hOrderId = true"
+                    ng-mouseleave="hOrderId = false"
+                    ng-class="{hoverCol: hOrderId}"
+                    ng-click="predicate = 'Id'; reverse=!reverse"
+                    width="5%" class="sorting_asc" tabindex="0" rowspan="1" colspan="1"
+                    aria-sort="ascending">
+                    Order ID
+                    <i ng-class="{
+                                'fa fa-sort-desc' : reverse && predicate==='Id',
+                                'fa fa-sort-asc' : !reverse && predicate==='Id',
+                                'fa fa-sort': predicate !== 'Id'
+                            }"></i>
+                </th>
+                <th ng-mouseenter="hDate = true"
+                    ng-mouseleave="hDate = false"
+                    ng-class="{hoverCol: hDate}"
+                    ng-click="predicate = 'Date'; reverse=!reverse"
+                    width="15%" class="sorting" tabindex="0" rowspan="1" colspan="1">
+                    Date
+                    <i ng-class="{
+                                'fa fa-sort-desc' : reverse && predicate==='Date',
+                                'fa fa-sort-asc' : !reverse && predicate==='Date',
+                                'fa fa-sort': predicate !== 'Date'
+                            }"></i>
+                </th>
+                <th ng-mouseenter="hFName = true"
+                    ng-mouseleave="hFName = false"
+                    ng-class="{hoverCol: hFName}"
+                    ng-click="predicate = 'FirstName'; reverse=!reverse"
+                    width="10%" class="sorting" tabindex="0" rowspan="1" colspan="1">
+                    First Name
+                    <i ng-class="{
+                                'fa fa-sort-desc' : reverse && predicate==='FirstName',
+                                'fa fa-sort-asc' : !reverse && predicate==='FirstName',
+                                'fa fa-sort': predicate !== 'FirstName'
+                            }"></i>
+                </th>
+                <th ng-mouseenter="hLName = true"
+                    ng-mouseleave="hLName = false"
+                    ng-class="{hoverCol: hLName}"
+                    ng-click="predicate = 'LastName'; reverse=!reverse"
+                    width="10%" class="sorting" tabindex="0" rowspan="1" colspan="1">
+                    Last Name
+                    <i ng-class="{
+                                'fa fa-sort-desc' : reverse && predicate==='LastName',
+                                'fa fa-sort-asc' : !reverse && predicate==='LastName',
+                                'fa fa-sort': predicate !== 'LastName'
+                            }"></i>
+                </th>
+                <th ng-mouseenter="hAddress = true"
+                    ng-mouseleave="hAddress = false"
+                    ng-class="{hoverCol: hAddress}"
+                    ng-click="predicate = 'ShippingAddress'; reverse=!reverse"
+                    width="10%" class="sorting" tabindex="0" rowspan="1" colspan="1">
+                    Shipping Address
+                    <i ng-class="{
+                                'fa fa-sort-desc' : reverse && predicate==='ShippingAddress',
+                                'fa fa-sort-asc' : !reverse && predicate==='ShippingAddress',
+                                'fa fa-sort': predicate !== 'ShippingAddress'
+                            }"></i>
+                </th>
+                <th ng-mouseenter="hAmount = true"
+                    ng-mouseleave="hAmount = false"
+                    ng-class="{hoverCol: hAmount}"
+                    ng-click="predicate = 'PaymentAmount'; reverse=!reverse"
+                    width="10%" class="sorting" tabindex="0" rowspan="1" colspan="1">
+                    Payment Amount
+                    <i ng-class="{
+                                'fa fa-sort-desc' : reverse && predicate==='PaymentAmount',
+                                'fa fa-sort-asc' : !reverse && predicate==='PaymentAmount',
+                                'fa fa-sort': predicate !== 'PaymentAmount'
+                            }"></i>
+                </th>
+                <th ng-mouseenter="hStatus = true"
+                    ng-mouseleave="hStatus = false"
+                    ng-class="{hoverCol: hStatus}"
+                    ng-click="predicate = 'OrderStatus'; reverse=!reverse"
+                    width="10%" class="sorting" tabindex="0" rowspan="1" colspan="1">
+                    Order Status
+                    <i ng-class="{
+                                'fa fa-sort-desc' : reverse && predicate==='OrderStatus',
+                                'fa fa-sort-asc' : !reverse && predicate==='OrderStatus',
+                                'fa fa-sort': predicate !== 'OrderStatus'
+                            }"></i>
+                </th>
+            </tr>
+
+            <tr role="row" class="filter">
+
+                <td ng-class="{hoverCol: hOrderId}" rowspan="1" colspan="1">
+                    <input type="text" class="form-control form-filter input-sm"
+                           name="orderID" ng-model="searchText.Id" />
+                </td>
+                <td ng-class="{hoverCol: hDate}" rowspan="1" colspan="1">
+                    <input type="text" class="form-control form-filter input-sm"
+                           name="date_order" ng-model="searchText.Date">
+                </td>
+                <td ng-class="{hoverCol: hFName}" rowspan="1" colspan="1">
+                    <input type="text" class="form-control form-filter input-sm"
+                           name="firstName" ng-model="searchText.FirstName">
+                </td>
+                <td ng-class="{hoverCol: hLName}" rowspan="1" colspan="1">
+                    <input type="text" class="form-control form-filter input-sm"
+                           name="lastName" ng-model="searchText.LastName" />
+                </td>
+                <td ng-class="{hoverCol: hAddress}" rowspan="1" colspan="1">
+                    <input type="text" class="form-control form-filter input-sm"
+                           name="address" ng-model="searchText.ShippingAddress" />
+
+                </td>
+                <td ng-class="{hoverCol: hAmount}" rowspan="1" colspan="1">
+                    <input type="text" class="form-control form-filter input-sm margin-bottom-5 clearfix"
+                           name="amount" ng-model="searchText.PaymentAmount">
+                </td>
+                <td ng-class="{hoverCol: hStatus}" rowspan="1" colspan="1">
+                    <select ng-model="searchText.OrderStatus"
+                            ng-options="s for s in statusOptions"
+                            name="status" class="form-control form-filter input-sm">
+                        <option id="selectAll" value="">Select...</option>
+                    </select>
+                    <br />
+                    <input id="resetBtn" type="button" value="Reset" ng-click="resetBtn()" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr role="row" ng-repeat="r in ordersData | filter: searchText | orderBy: predicate:reverse">
+                <td ng-class="{hoverCol: hOrderId}">
+                    {{ r.Id }}
+                </td>
+                <td ng-class="{hoverCol: hDate}">{{ r.Date  | date: "dd/MM/yyyy" }}</td>
+                <td ng-class="{hoverCol: hFName}">{{ r.FirstName  }}</td>
+                <td ng-class="{hoverCol: hLName}">{{  r.LastName }}</td>
+                <td ng-class="{hoverCol: hAddress}">{{ r.ShippingAddress }}</td>
+                <td ng-class="{hoverCol: hAmount}">$ {{ r.PaymentAmount }}</td>
+                <td ng-class="{hoverCol: hStatus}">
+                    <span class="label label-sm"
+                          ng-class="{'label-green': r.OrderStatus == 'New',
+                                     'label-red': r.OrderStatus == 'Returned',
+                                     'label-blue': r.OrderStatus == 'Shipped' }">
+                        {{ r.OrderStatus }}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

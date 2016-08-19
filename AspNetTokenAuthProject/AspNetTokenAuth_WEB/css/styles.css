@@ -1,0 +1,82 @@
+﻿.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid black;
+    display: inline-block;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid black;
+    display: inline-block;
+}
+
+.hoverCol {
+    background-color: #bfe9ff;
+}
+
+.label-green {
+    background: green;
+}
+
+.label-red {
+    background: red;
+}
+
+.label-blue {
+    background: #0099ff;
+}
+
+.highlight-true {
+    background-color: #bfe9ff;
+}
+
+.highlight-false {
+    background-color: none;
+}
+
+.highlight-all {
+    background-color: #bfe9ff;
+}
+
+#secure-login {
+    max-width: 750px;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    background: #ffffff;
+    margin: auto;
+    border: 8px solid #ff2e5e;
+    border-radius: 37px;
+}
+
+#secure-signup {
+    max-width: 750px;
+    width: 100%;
+    background: #bfbfbf;
+    margin: auto;
+    border: 1px solid #bfcad1;
+}
+
+.row {
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+.content-wrapper-notauth, .right-side {
+    min-height: 100%;
+    width:100%;
+    background-color: #ecf0f5;
+}
+
+.wrapper-notauth {
+    min-height: 100%;
+    width:100%;
+    overflow: hidden;
+    background-color: none;
+}

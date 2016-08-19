@@ -1,0 +1,54 @@
+﻿<div data-ng-hide="authentication.IsAuthenticated" class="top-content">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+            </div>
+            <div id="secure-login" class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>Registration</h3>
+                            <p>Please enter your credentials</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-person"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" class="login-form">
+                            <div class="form-group">
+                                <label class="sr-only" for="form-username">Username</label>
+                                <input data-ng-model="userRegistrationEmail" required autofocus
+                                       type="text"
+                                       placeholder="Email..."
+                                       class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="form-password">Password</label>
+                                <input data-ng-model="userRegistrationPassword" required
+                                       type="password" name="form-password" placeholder="Password..."
+                                       class="form-password form-control" id="form-password" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="sr-only" for="form-password">Password</label>
+                                <input data-ng-model="userRegistrationConfirmPassword" required
+                                       type="password" name="form-password" placeholder="Confirm Password..."
+                                       class="form-password form-control" id="form-password" />
+                            </div>
+
+                            <button type="submit" class="form-control btn btn-success" data-ng-click="registerUser()">Create Account</button>
+
+                            <p><a style="color: purple;" href="/Login" role="button">Already have a account? Click here to login</a></p>
+
+                            <div data-ng-hide="message == ''">
+                                {{message}}
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
