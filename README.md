@@ -527,6 +527,10 @@ app.controller('loginCtrl', ['$scope', 'LoginService', '$location',
 
 ```
 
+![login](https://cloud.githubusercontent.com/assets/11988924/18104099/83498170-6ec7-11e6-8a12-7f699aa98781.png)
+
+<br/>
+
 <i>signup-controller.js</i> 
 
 ```javascript 
@@ -569,6 +573,10 @@ app.controller('signUpCtrl', ['$scope', 'SignUpService', '$location',
         };
     }]);
 ```
+
+![signup](https://cloud.githubusercontent.com/assets/11988924/18104089/75bca6a4-6ec7-11e6-8d7e-6786954d46a9.png)
+
+<br/>
 
 <i>dashboard-controller.js</i> - The dashboard controller fetches the JSON CustomerOrders data by calling a GET request to api/CustomerOrders. Right below it is just some features and functionalities I included for the Dashboard data table. 
 
@@ -616,6 +624,8 @@ app.controller("dashboardCtrl", ['$scope', '$http', 'AuthenticationService',
     }]);
 
 ```
+
+![dashboard](https://cloud.githubusercontent.com/assets/11988924/18104073/60a8f7d6-6ec7-11e6-8781-d32c7252e794.png)
 
 <hr/>
 
