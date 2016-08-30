@@ -355,7 +355,7 @@ Create <i>UserAuthorizedController.cs</i>. This controller class is used to conf
 
 <h3>Step 6)</h3>
 
-Back to AngularJs now. Add ```javascript var serviceBase = "http://localhost:PortNumber" ``` inside <i>app.js</i<. 
+Back to AngularJs now. Add ```javascript var serviceBase = "http://localhost:PortNumber" ``` inside <i>app.js</i>. 
 
 Start by creating the AngularJs Web Services. 
 
