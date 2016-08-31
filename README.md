@@ -97,7 +97,7 @@ var app = angular
 
 <h3>Step 3)</h3>
 
-Create <i>index.html</i> - This works similarly to a master page and the partial views will be injected inside the <data-ng-view> tag. 
+Create <i>index.html</i> - This works similarly to a master page and the partial views will be injected inside the <i>data-ng-view</i> tag. 
 
 <i>index.html</i> 
 
@@ -630,8 +630,49 @@ app.controller("dashboardCtrl", ['$scope', '$http', 'AuthenticationService',
 
 <hr/>
 
+<h3>Step 8)</h3>
+
+Make you enable the CORS inside the API Project <i>Web.config</i> or you won't be able to login. 
+
+```xml 
+
+  <system.webServer>
+
+    // More code here... 
+
+    <httpProtocol>
+      <customHeaders>
+        <add name="Access-Control-Allow-Origin" value="*" />
+      </customHeaders>
+    </httpProtocol>
+  </system.webServer>
+
+  // More code here...
+```
+
+Inside of <i>~App_Start/WebApiConfig.cs</i>, don't forget to parse XML data to JSON format. 
+
+```C# 
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API configuration and services
+
+            // Convert XML data to JSON format
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            
+            // More code here... 
+        }
+    }
+
+```
+
+<hr/>
+
 <h3>Wrap Up</h3>
 
 You can find the rest of the source code in the project. 
-
-
