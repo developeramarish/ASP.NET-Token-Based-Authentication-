@@ -352,6 +352,45 @@ Create <i>UserAuthorizedController.cs</i>. This controller class is used to conf
     }
 ```
 
+Make you enable the CORS inside the API Project <i>Web.config</i> or you won't be able to login. 
+
+```xml 
+
+  <system.webServer>
+
+    // More code here... 
+
+    <httpProtocol>
+      <customHeaders>
+        <add name="Access-Control-Allow-Origin" value="*" />
+      </customHeaders>
+    </httpProtocol>
+  </system.webServer>
+
+  // More code here...
+```
+
+Inside of <i>~App_Start/WebApiConfig.cs</i>, don't forget to parse XML data to JSON format. 
+
+```C# 
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API configuration and services
+
+            // Convert XML data to JSON format
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            var json = config.Formatters.JsonFormatter;
+            json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            
+            // More code here... 
+        }
+    }
+
+```
+
 <hr/>
 
 <h3>Step 6)</h3>
@@ -627,49 +666,6 @@ app.controller("dashboardCtrl", ['$scope', '$http', 'AuthenticationService',
 ```
 
 ![dashboard](https://cloud.githubusercontent.com/assets/11988924/18104073/60a8f7d6-6ec7-11e6-8781-d32c7252e794.png)
-
-<hr/>
-
-<h3>Step 8)</h3>
-
-Make you enable the CORS inside the API Project <i>Web.config</i> or you won't be able to login. 
-
-```xml 
-
-  <system.webServer>
-
-    // More code here... 
-
-    <httpProtocol>
-      <customHeaders>
-        <add name="Access-Control-Allow-Origin" value="*" />
-      </customHeaders>
-    </httpProtocol>
-  </system.webServer>
-
-  // More code here...
-```
-
-Inside of <i>~App_Start/WebApiConfig.cs</i>, don't forget to parse XML data to JSON format. 
-
-```C# 
-    public static class WebApiConfig
-    {
-        public static void Register(HttpConfiguration config)
-        {
-            // Web API configuration and services
-
-            // Convert XML data to JSON format
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-            var json = config.Formatters.JsonFormatter;
-            json.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-            config.Formatters.Remove(config.Formatters.XmlFormatter);
-            
-            // More code here... 
-        }
-    }
-
-```
 
 <hr/>
 
