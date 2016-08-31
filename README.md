@@ -1,4 +1,4 @@
-# ASP.NET Web API 2 & Angularjs (Single Page Application) - Token Based Authenication
+# ASP.NET Web API 2, Angularjs & Identity (Single Page Application) - Token Based Authenication
 
 <strong>Version:</strong> .NET 4.6.1 
 
