@@ -19,7 +19,8 @@ The AspNetTokenAuth_API project was created using ASP.NET Web API 2 (Individual 
 
 Here is the tree structure of the ASP.NET Empty Web Application Project: 
 
-<img width="219" alt="treestructure" src="https://cloud.githubusercontent.com/assets/11988924/18068630/4bb73c82-6e10-11e6-8da2-2f835b1e1911.png">
+![tree](https://cloud.githubusercontent.com/assets/11988924/18132848/5f228bf8-6f66-11e6-9014-30c5e8d098f8.png)
+
 
 <hr/>
 
@@ -295,7 +296,7 @@ Set the Authorize attribute so that only authorized users can view the data:
 
 <h3>Step 5)</h3>
 
-The user account and ASP.NET Membership stuff is all set up for you when you select Authentication to <b>Individual User</b>. 
+The ASP.NET Identity is already set up for you when you select Authentication to <b>Individual User Accounts</b>. 
 
 First, create an account. You can use whatever debugging tool you want, but for this tutorial, I will be using <a href="http://www.telerik.com/fiddler">Fiddler</a> as my debugging tool. You can download <a href="http://www.telerik.com/fiddler">Fiddler</a> for free through this link <a href="https://www.telerik.com/download/fiddler">https://www.telerik.com/download/fiddler</a>.
 
